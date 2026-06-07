@@ -14,3 +14,40 @@ if (savedSort) {
   });
 }
 
+
+sortBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  sortDropdown.classList.toggle('is-open');
+});
+
+
+document.addEventListener('click', () => {
+  sortDropdown.classList.remove('is-open');
+});
+
+
+sortItems.forEach((item) => {
+  item.addEventListener('click', () => {
+
+    
+    sortItems.forEach((li) => {
+      li.classList.remove('active');
+    });
+
+    
+    item.classList.add('active');
+
+   
+    sortBtnText.textContent = `Sort by: ${item.textContent.trim()}`;
+
+    
+    sessionStorage.setItem(
+      'selectedSort',
+      item.dataset.sort
+    );
+
+    
+    sortDropdown.classList.remove('is-open');
+  });
+});
+
