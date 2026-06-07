@@ -9,4 +9,15 @@ sortBtn.addEventListener('click', (e) => {
 document.addEventListener('click', () => {
   sortDropdown.classList.remove('is-open');
 });
+sortItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    
+    sortItems.forEach((li) => {
+      li.classList.remove('active');
+    });
+
+    item.classList.add('active');
+
+  });
+});
 
