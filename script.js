@@ -6,4 +6,7 @@ sortBtn.addEventListener('click', (e) => {
   e.stopPropagation();
   sortDropdown.classList.toggle('is-open');
 });
+document.addEventListener('click', () => {
+  sortDropdown.classList.remove('is-open');
+});
 
